@@ -4,17 +4,6 @@ import { useAllCharacters } from "../hooks/useAllCharacters";
 import { useCharacterData } from "../hooks/useCharacterData";
 import Card from "../components/Card";
 
-// const QUERY = gql`
-//     query{
-//         characters{
-//             results{
-//                 id
-//                 name
-//                 image
-//             }
-//         }
-//     }   
-// `;
 
 type PageInfo = {
     pageNumber: Number
@@ -25,7 +14,7 @@ function DataSet(_props:PageInfo){
 
     const resultSet = data;
     console.log({error, loading, data});
-    // let list = new HTMLCollection(data.characters.results[0]);
+
 
     if(loading){
         console.log({error, loading, data});
@@ -36,7 +25,7 @@ function DataSet(_props:PageInfo){
         <div>
             {resultSet.characters.results.map((obj: any) => {
                 return (
-                    <Card id={obj.id} name={obj.name} imageUrl={obj.image}/>
+                    <Card key={obj.id} id={obj.id} name={obj.name} imageUrl={obj.image}/>
                 )
             })}
         </div>
