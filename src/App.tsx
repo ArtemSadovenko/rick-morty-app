@@ -8,8 +8,9 @@ import{
 }from "@apollo/client"
 import {onError} from "@apollo/client/link/error"
 import DataSet from './pages/DataSet';
-import Header from './pages/Header';
-import Footer from './pages/Footer';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import {useParams} from "react-router-dom"
 import { useState } from 'react';
 
 // const errorLink = onError(({}) => {
@@ -26,26 +27,33 @@ import { useState } from 'react';
 
 
 function App() {
-  const [pageNum, setPageNum] = useState(1);
-
-  const nextPage = () =>{
-    if(pageNum != 42){
-      setPageNum(pageNum+1)
-    }
+  // const [pageNum, setPageNum] = useState(1);
+    const params = useParams();
+  // const nextPage = () =>{
+  //   if(pageNum != 42){
+  //     setPageNum(pageNum+1)
+  //   }
+  // }
+  let pageNum:Number;
+  
+  if( params.id  === undefined){
+    pageNum = Number(1);
+  }else{
+    pageNum = Number(params.id);
   }
 
+  // const prevPage = () =>{
+  //   if(pageNum != 1){
+  //     setPageNum(pageNum-1)
+  //   }
+  // }
 
-  const prevPage = () =>{
-    if(pageNum != 1){
-      setPageNum(pageNum-1)
-    }
-  }
 
   return (
     <div className='mainDiv'>
       <Header></Header>
       <DataSet pageNumber={pageNum}/>
-      <Footer nextPage={nextPage} prevPage={prevPage}></Footer>
+      <Footer id={pageNum} ></Footer>
     </div>
   );
 }
