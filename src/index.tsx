@@ -6,7 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import {ApolloProvider, ApolloClient, InMemoryCache} from "@apollo/client"
 import {RouterProvider, createBrowserRouter} from "react-router-dom"
 import CharacterDataPage from './pages/CharacterDataPage';
-
+import Footer from './pages/Footer';
+import Header from './pages/Header';
 const id = 3;
 
 const client = new ApolloClient({
@@ -33,8 +34,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
+      {/* <Header></Header> */}
       {/* <App/> */}
       <RouterProvider router={router}/>
+      {/* <Footer></Footer> */}
     </ApolloProvider>
   </React.StrictMode>
 );
