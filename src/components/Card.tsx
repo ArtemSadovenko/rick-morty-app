@@ -14,10 +14,10 @@ type CardInfo = {
 
 export default function Card(_props: CardInfo){
     return(         
-    <Grid style={{justifyContent:"center", alignItems:"center", display: "flex"}} key={_props.id}  className="grid" item md={3} xs={12} sm={6}>
+    <Grid  style={{justifyContent:"center", alignItems:"center", display: "flex" ,marginTop:"12px", marginBottom:"12px"}} key={_props.id}  className="grid" item md={3} xs={12} sm={6}>
         
         <Link style={{textAlign: "center", textDecoration: 'none', color: "aquamarine"}} className="card" to={`/character/${_props.id}`} >
-        <div style={{padding: "8px"}} className="cardDiv" key={_props.id} >
+        <div style={{padding: "8px"}} className="cardDiv" >
             <img src={_props.imageUrl}></img>
             <h1 >{_props.name}</h1>
         </div>
