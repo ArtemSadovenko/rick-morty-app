@@ -4,8 +4,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import {useParams} from "react-router-dom";
 import Container from "@mui/material/Container"
-import Grid from '@mui/material/Grid'
-
 
 function App() {
   const params = useParams();
@@ -21,9 +19,8 @@ function App() {
   return (
     <Container>
       <Header></Header>
-      <Grid container spacing={"8px"}>
+
         <AllCharactersPage pageNumber={pageNum}/>  
-      </Grid>
       <Footer id={pageNum} ></Footer>
     </Container>
   );

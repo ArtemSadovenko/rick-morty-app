@@ -7,7 +7,8 @@ import { useCharacterData } from "../hooks/useCharacterData";
 // }
 
 export default function CharacterDataPage(){
-    const params = useParams(); 
+    const params = useParams();
+     
     const {error, data, loading} = useCharacterData(Number(params.id));
     console.log( data)
 

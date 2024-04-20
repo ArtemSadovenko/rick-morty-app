@@ -1,9 +1,11 @@
 import React from "react";
+import Container from '@mui/material/Container'
 
 export default function Header(){
     return(
-        <div className="header">
-        <h1>Rick This!</h1>
-        </div>
+        <Container>
+          
+            <h1 style={{textAlign: "center", color: "white"}}>Rick This!</h1>
+        </Container>
     )
 }
