@@ -1,15 +1,17 @@
 import React from "react";
 import {gql, useQuery} from "@apollo/client"
 import { useAllCharacters } from "../hooks/useAllCharacters";
-import { useCharacterData } from "../hooks/useCharacterData";
 import Card from "../components/Card";
+import Container from "@mui/material/Container"
+import Grid from '@mui/material/Grid'
+
 
 
 type PageInfo = {
     pageNumber: Number
 }
 
-function DataSet(_props:PageInfo){
+function AllCharactersPage(_props:PageInfo){
     const {error, data, loading} = useAllCharacters(_props.pageNumber)
 
     const resultSet = data;
@@ -22,18 +24,23 @@ function DataSet(_props:PageInfo){
     }
     else{
     return(
-        <div>
+        <Grid container spacing={"8px"}>
+        
+         {/* sx={{backgroundColor: "rgb(60,60,60)", borderRadius: "10px", p: "16px", boxShadow: "3px"}}> */}
             {resultSet.characters.results.map((obj: any) => {
                 return (
-                    <Card key={obj.id} id={obj.id} name={obj.name} imageUrl={obj.image}/>
+                    // <Grid key={obj.id} item md={2.5}>
+                        <Card  key={obj.id} id={obj.id} name={obj.name} imageUrl={obj.image}/>
+                    // {/* </Grid> */}
                 )
             })}
-        </div>
+        </Grid>
+
     );
 }
 }
-DataSet.defaultProps = {
+AllCharactersPage.defaultProps = {
     pageNumber: 1
 }
 
-export default DataSet;
+export default AllCharactersPage;

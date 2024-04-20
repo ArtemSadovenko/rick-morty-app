@@ -1,5 +1,6 @@
 import React, { Key } from "react";
 import { Link } from "react-router-dom";
+import Grid from '@mui/material/Grid'
 
 type CardInfo = {
     id: Key & Number,
@@ -11,11 +12,16 @@ type CardInfo = {
 
 export default function Card(_props: CardInfo){
     return(
-        <Link to={`/character/${_props.id}`} key={_props.id}>
-        <div key={_props.id} >
+        
+        <Link className="card" to={`/character/${_props.id}`} key={_props.id}>
+        <Grid  className="grid" lg={2} xs={12} sm={6} md={3}>
+              
+
+        <div className="cardDiv" key={_props.id} >
             <img src={_props.imageUrl}></img>
-            <h1>{_props.name}</h1>
+            <h1 >{_props.name}</h1>
         </div>
+        </Grid>
         </Link>
     );
 }

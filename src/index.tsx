@@ -6,9 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {ApolloProvider, ApolloClient, InMemoryCache} from "@apollo/client"
 import {RouterProvider, createBrowserRouter} from "react-router-dom"
 import CharacterDataPage from './pages/CharacterDataPage';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import ListPage from './pages/ListPage';
+
 const id = 3;
 
 const client = new ApolloClient({

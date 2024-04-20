@@ -1,39 +1,14 @@
 import './App.css';
-import{
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  HttpLink,
-  from
-}from "@apollo/client"
-import {onError} from "@apollo/client/link/error"
-import DataSet from './pages/DataSet';
+import AllCharactersPage from './pages/AllCharactersPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import {useParams} from "react-router-dom"
-import { useState } from 'react';
-
-// const errorLink = onError(({}) => {
-//   if(graphqlErrors){
-//     graphqlErrors.map((({}) => ))
-//   }
-// });
-
-// const link = from([
-//   errorLink,
-//   new HttpLink({uri: ""}),
-// ]);
-
+import {useParams} from "react-router-dom";
+import Container from "@mui/material/Container"
+import Grid from '@mui/material/Grid'
 
 
 function App() {
-  // const [pageNum, setPageNum] = useState(1);
-    const params = useParams();
-  // const nextPage = () =>{
-  //   if(pageNum != 42){
-  //     setPageNum(pageNum+1)
-  //   }
-  // }
+  const params = useParams();
   let pageNum:Number;
   
   if( params.id  === undefined){
@@ -42,19 +17,15 @@ function App() {
     pageNum = Number(params.id);
   }
 
-  // const prevPage = () =>{
-  //   if(pageNum != 1){
-  //     setPageNum(pageNum-1)
-  //   }
-  // }
-
 
   return (
-    <div className='mainDiv'>
+    <Container>
       <Header></Header>
-      <DataSet pageNumber={pageNum}/>
+      <Grid container spacing={"8px"}>
+        <AllCharactersPage pageNumber={pageNum}/>  
+      </Grid>
       <Footer id={pageNum} ></Footer>
-    </div>
+    </Container>
   );
 }
 
